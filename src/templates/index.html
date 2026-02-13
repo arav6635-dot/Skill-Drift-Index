@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill Drift Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Market Intelligence</p>
+        <h1>Skill Drift Index</h1>
+        <p class="subhead">
+          Check how resilient a tech stack or role is over time using AI-powered trend inference.
+        </p>
+      </header>
+
+      <section class="panel input-panel">
+        <label for="query">Tech Stack or Job Title</label>
+        <textarea
+          id="query"
+          rows="4"
+          placeholder="Examples: React, Django, Rust OR Senior Frontend Engineer"
+        ></textarea>
+
+        <div class="action-row">
+          <button id="analyzeBtn" type="button">Analyze Skill Drift</button>
+          <span id="statusText" class="status">Ready</span>
+        </div>
+      </section>
+
+      <section id="resultPanel" class="panel result-panel hidden">
+        <div class="result-top">
+          <h2 id="resultTitle">Result</h2>
+          <span id="confidenceBadge" class="badge">confidence</span>
+        </div>
+
+        <div class="score-grid">
+          <article class="metric score-card">
+            <p>Skill Drift Score</p>
+            <h3 id="skillScore">--</h3>
+          </article>
+          <article class="metric">
+            <p>Risk of Obsolescence</p>
+            <h3 id="riskScore">--</h3>
+          </article>
+          <article class="metric">
+            <p>Demand Trend</p>
+            <h3 id="demandTrend">--</h3>
+          </article>
+          <article class="metric">
+            <p>Salary Trajectory</p>
+            <h3 id="salaryTrajectory">--</h3>
+          </article>
+          <article class="metric">
+            <p>Stack Half-life</p>
+            <h3 id="halfLife">--</h3>
+          </article>
+          <article class="metric">
+            <p>Peak Relevance</p>
+            <h3 id="peakRelevance">--</h3>
+          </article>
+          <article class="metric">
+            <p>Projected Decline</p>
+            <h3 id="projectedDecline">--</h3>
+          </article>
+        </div>
+
+        <div class="explain-block">
+          <h4>Why this score</h4>
+          <p id="explanation">--</p>
+        </div>
+
+        <div class="source-block">
+          <h4>Data Sources</h4>
+          <ul id="sourceList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
