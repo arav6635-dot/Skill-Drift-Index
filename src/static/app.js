@@ -25,7 +25,7 @@ function titleCase(text) {
 function setLoading(isLoading) {
   analyzeBtn.disabled = isLoading;
   analyzeBtn.textContent = isLoading ? "Analyzing..." : "Analyze Skill Drift";
-  statusText.textContent = isLoading ? "Running Gemini model" : "Ready";
+  statusText.textContent = isLoading ? "Analyzing market signals" : "Ready";
 }
 
 function setResult(data) {
